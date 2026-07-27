@@ -3,10 +3,12 @@ import { jest } from '@jest/globals';
 const mockCreateOpenAICompatible = jest.fn(() => jest.fn());
 
 jest.unstable_mockModule('@ai-sdk/openai-compatible', () => ({
+	__esModule: true,
 	createOpenAICompatible: mockCreateOpenAICompatible
 }));
 
 jest.unstable_mockModule('../../../scripts/modules/utils.js', () => ({
+	__esModule: true,
 	log: jest.fn(),
 	resolveEnvVariable: jest.fn((key) => process.env[key]),
 	findProjectRoot: jest.fn(() => process.cwd()),
@@ -14,6 +16,7 @@ jest.unstable_mockModule('../../../scripts/modules/utils.js', () => ({
 }));
 
 jest.unstable_mockModule('../../../scripts/modules/config-manager.js', () => ({
+	__esModule: true,
 	isProxyEnabled: jest.fn(() => false),
 	getAnonymousTelemetryEnabled: jest.fn(() => true),
 	setSuppressConfigWarnings: jest.fn(),
